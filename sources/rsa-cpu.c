@@ -3,10 +3,9 @@
 int main(int argc, char **argv) {
 	srand(time(0));
 
-	u(unit0, 1024); u(unit1, 1024); u(uresult, 1024);
-	memset(unit0, 0xff, 128 / 8); memset(unit1, 0xff, 128 / 8);
-	//urand(unit0, 128); urand(unit1, 128);
-	umul(unit0, unit1, uresult, 1024);
+	u(unit0, 131072); u(unit1, 131072); u(uresult, 131072);
+	urand(unit0, 128); urand(unit1, 128);
+	umul(unit0, unit1, uresult, 131072);
 	udump(unit0, 256); udump(unit1, 256); udump(uresult, 256);
 	/*
 	u(unit, 512); u(result, 512);
