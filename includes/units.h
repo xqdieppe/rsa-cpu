@@ -2,7 +2,7 @@
 #define UNITS_H
 
 #define u(name,bits) \
-	unsigned long *name[bits / 32]; \
+	uint32_t name[bits / 32]; \
 	memset((void *)name, 0, bits / 8);
 
 #endif
