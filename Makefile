@@ -3,6 +3,9 @@ NAME = rsa-cpu
 CC = gcc
 CFLAGS = -I includes/ -g3
 SRC = sources/udump.c \
+      sources/urand.c \
+      sources/uadd.c \
+      sources/umul.c \
 
 NAME_SRC = sources/rsa-cpu.c
 
