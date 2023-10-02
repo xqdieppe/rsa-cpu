@@ -1,3 +1,5 @@
+#include "rsa-cpu.h"
+
 void udump(unsigned int *number, size_t bits) {
 	size_t size = bits / 32;
 
