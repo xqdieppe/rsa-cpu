@@ -6,7 +6,9 @@ void umul_step(uint32_t *unit0, uint16_t unit1, uint32_t *result, size_t bits) {
 	size_t s = bits / 16;
 
 	for (size_t i = 0; i < s; i++) {
-		tmp = ((uint16_t *)unit0)[i] * unit1 + r; 
+		tmp = ((uint16_t *)unit0)[i];
+	       	tmp *= unit1;
+		tmp += r; 
 		((uint16_t *)result)[i] = tmp & 0xffff;
 		r = tmp >> 16;
 	}
