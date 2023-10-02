@@ -16,9 +16,12 @@ void umul(uint32_t *unit0, uint32_t *unit1, uint32_t *result, size_t bits) {
 	size_t s = bits / 16;
 
 	for (size_t i = 0; i < s; i++) {
-		u(tmp, bits); u(tmp_shift, bits);
-		umul_step(unit0, unit1[i], tmp, bits);
+		u(tmp, bits); u(tmp_shift, bits); u(nresult, bits);
+
+		umul_step(unit0, ((uint16_t *)unit1)[i], tmp, bits);
+
 		ulshift(tmp, tmp_shift, i * 16, bits);
-		uadd(result, tmp_shift, bits);
+		uadd(result, tmp_shift, nresult, bits);
+		uassign(result, nresult, bits);
 	}
 }
