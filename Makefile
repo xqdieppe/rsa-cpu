@@ -4,6 +4,7 @@ CC = gcc
 CFLAGS = -I includes/ -g3
 SRC = sources/udump.c \
       sources/urand.c \
+      sources/ulshift.c \
       sources/uadd.c \
       sources/umul.c \
 
