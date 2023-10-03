@@ -3,10 +3,12 @@
 int main(int argc, char **argv) {
 	srand(time(0));
 
-	u(unit0, 131072); u(unit1, 131072); u(uresult, 131072);
-	urand(unit0, 128); urand(unit1, 128);
-	umul(unit0, unit1, uresult, 131072);
-	udump(unit0, 256); udump(unit1, 256); udump(uresult, 256);
+	#define USIZE 256
+	u(unit0, USIZE); u(unit1, USIZE); u(uresult, USIZE);
+	//memset(unit0, 0xee, 512 / 8); memset(unit1, 0xff, 256 / 8);
+	urand(unit0, 128); urand(unit1, 96);
+	usub(unit0, unit1, uresult, USIZE);
+		udump(unit0, USIZE); udump(unit1, USIZE); udump(uresult, USIZE);
 	/*
 	u(unit, 512); u(result, 512);
 	memset(unit, 0xff, 256 / 8);
