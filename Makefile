@@ -11,6 +11,7 @@ SRC = sources/uassign.c \
       sources/usup.c \
       sources/uinf.c \
       sources/usupeq.c \
+      sources/uinfeq.c \
       sources/uadd.c \
       sources/usub.c \
       sources/umul.c \
