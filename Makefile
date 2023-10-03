@@ -6,6 +6,8 @@ SRC = sources/uassign.c \
       sources/udump.c \
       sources/urand.c \
       sources/ulshift.c \
+      sources/urshift.c \
+      sources/ueq.c \
       sources/usup.c \
       sources/uinf.c \
       sources/usupeq.c \
