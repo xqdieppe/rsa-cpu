@@ -7,7 +7,7 @@ int main(int argc, char **argv) {
 	u(unit0, USIZE); u(unit1, USIZE); u(uresult, USIZE);
 	//memset(unit0, 0xee, 512 / 8); memset(unit1, 0xff, 256 / 8);
 	urand(unit0, 128); urand(unit1, 96);
-	usub(unit0, unit1, uresult, USIZE);
+	udiv(unit0, unit1, uresult, USIZE);
 		udump(unit0, USIZE); udump(unit1, USIZE); udump(uresult, USIZE);
 	/*
 	u(unit, 512); u(result, 512);

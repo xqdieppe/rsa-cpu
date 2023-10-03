@@ -6,9 +6,13 @@ SRC = sources/uassign.c \
       sources/udump.c \
       sources/urand.c \
       sources/ulshift.c \
+      sources/usup.c \
+      sources/uinf.c \
+      sources/usupeq.c \
       sources/uadd.c \
       sources/usub.c \
       sources/umul.c \
+      sources/udiv.c \
 
 NAME_SRC = sources/rsa-cpu.c
 
