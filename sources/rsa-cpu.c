@@ -3,7 +3,7 @@
 int main(int argc, char **argv) {
 	srand(time(0));
 
-	#define USIZE 64
+	#define USIZE 3072
 
 	/*
 	u(unit0, USIZE); u(unit1, USIZE); u(uresult, USIZE); u(umod, USIZE);
