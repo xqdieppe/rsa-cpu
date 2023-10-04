@@ -1,0 +1,3 @@
+inverse of E % mod is = mpow(E,mod-2)
+
+

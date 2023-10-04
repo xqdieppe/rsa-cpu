@@ -5,6 +5,7 @@ CFLAGS = -I includes/ -O3
 SRC = sources/uassign.c \
       sources/udump.c \
       sources/udumpbin.c \
+      sources/usize.c \
       sources/urand.c \
       sources/ulshift.c \
       sources/urshift.c \
@@ -20,6 +21,10 @@ SRC = sources/uassign.c \
       sources/udivmod.c \
       sources/umodexp.c \
       sources/upseudoprime.c \
+      sources/uphi.c \
+      sources/uegcd.c \
+      sources/umodinv.c \
+      sources/ursakeygen.c \
 
 NAME_SRC = sources/rsa-cpu.c
 
