@@ -17,7 +17,8 @@ SRC = sources/uassign.c \
       sources/usub.c \
       sources/umul.c \
       sources/udiv.c \
-      sources/udiv2.c \
+      sources/udivmod.c \
+      sources/umodexp.c \
 
 NAME_SRC = sources/rsa-cpu.c
 

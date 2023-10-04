@@ -1,7 +1,8 @@
 #include "rsa-cpu.h"
 
-void udiv2(uint32_t *unit0, uint32_t *unit1, uint32_t *result, size_t bits) {
+void udivmod(uint32_t *unit0, uint32_t *unit1, uint32_t *result, uint32_t *mod, size_t bits) {
 	u(u0, bits); uassign(u0, unit0, bits); u(block, bits);
+	u(zero, bits); uassign(result, zero, bits); uassign(mod, zero, bits);
 
 	for (size_t i = 0; i < bits; i++) {
 		u(tmpblock, bits); ulshift(block, tmpblock, 1, bits); uassign(block, tmpblock, bits);
@@ -15,4 +16,5 @@ void udiv2(uint32_t *unit0, uint32_t *unit1, uint32_t *result, size_t bits) {
 			result[0] |= 1;
 		}
 	}
+	uassign(mod, block, bits);
 }
