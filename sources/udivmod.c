@@ -11,7 +11,7 @@ void udivmod(uint32_t *unit0, uint32_t *unit1, uint32_t *result, uint32_t *mod, 
 		if (usup(unit1, block, bits)) {	
 			u(tmpresult, bits); ulshift(result, tmpresult, 1, bits); uassign(result, tmpresult, bits);
 		} else {
-			u(tmpblock, bits); usub(block, unit1, tmpblock, bits); uassign(block, tmpblock, bits);	
+			u(tmpblock, bits); usub(block, unit1, tmpblock, bits); uassign(block, tmpblock, bits);
 			u(tmpresult, bits); ulshift(result, tmpresult, 1, bits); uassign(result, tmpresult, bits);
 			result[0] |= 1;
 		}

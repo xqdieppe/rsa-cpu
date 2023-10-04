@@ -13,37 +13,25 @@ void umodexp(uint32_t *unit, uint32_t *exp, uint32_t *mod, uint32_t *result, siz
 	}
 	
 	u(r, bits); r[0] = 1;
-
 	u(tmpb, bits); udivmod(b, mod, div, tmpb, bits); uassign(b, tmpb, bits);
 
 	while (usup(e, zero, bits)) {
 		u(emod2,bits); udivmod(e, two, div, emod2, bits);
-	        if (ueq(emod2, one)) {
+	        if (ueq(emod2, one, bits)) {
 			u(tmp0, bits); umul(r, b, tmp0, bits);
+			printf("=================\n");
+			udump(r, bits);
 			udivmod(tmp0, mod, div, r, bits);
+			udump(r, bits);
+			printf("=================\n");
 		}
-		u(tmpb1, bits); uassign(tmpb1, b);
+		u(tmpb1, bits); uassign(tmpb1, b, bits);
 		u(tmp1, bits); umul(b, tmpb1, tmp1, bits);
 		udivmod(tmp1, mod, div, b, bits);
 		
-		u(tmpe, bits); uassign(tmpe, e);
+		u(tmpe, bits); uassign(tmpe, e, bits);
 		urshift(tmpe, e, 1, bits);
 	}
 	uassign(result, r, bits);
 	return;
-/*
-  else
-    local r = 1
-    b = b % m
-    while e > 0 do
-      if e % 2 == 1 then
-        r = (r*b) % m
-      end
-      b = (b*b) % m
-      e = e >> 1     --use 'e = math.floor(e / 2)' on Lua 5.2 or older
-    end
-    return r
-  end
-end
-*/
 }
