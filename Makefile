@@ -1,7 +1,7 @@
 NAME = rsa-cpu
 
 CC = gcc
-CFLAGS = -I includes/
+CFLAGS = -I includes/ -g3
 SRC = sources/uassign.c \
       sources/udump.c \
       sources/udumpbin.c \

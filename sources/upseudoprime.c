@@ -16,8 +16,7 @@ void upseudoprime(uint32_t *result, size_t size, size_t bits) {
 		urand(result, size); 
 		for (size_t i = 0; i < 32; i++) {
 			if (!upseudoprime_test(result, bits))
-				continue;
+				break;
 		}
-		return;
 	} while (1);
 }

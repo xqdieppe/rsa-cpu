@@ -19,11 +19,7 @@ void umodexp(uint32_t *unit, uint32_t *exp, uint32_t *mod, uint32_t *result, siz
 		u(emod2,bits); udivmod(e, two, div, emod2, bits);
 	        if (ueq(emod2, one, bits)) {
 			u(tmp0, bits); umul(r, b, tmp0, bits);
-			printf("=================\n");
-			udump(r, bits);
 			udivmod(tmp0, mod, div, r, bits);
-			udump(r, bits);
-			printf("=================\n");
 		}
 		u(tmpb1, bits); uassign(tmpb1, b, bits);
 		u(tmp1, bits); umul(b, tmpb1, tmp1, bits);
