@@ -8,10 +8,12 @@ void umodinv(uint32_t *a, uint32_t *mod, uint32_t *result, size_t bits) {
 	int8_t su_ = 1; u(u_, bits);
 	int8_t sv_ = 1; u(v_, bits);
 	udump(a_, bits);
-	uegcd(a_, mod_, pgcd, &su_, u_, &sv_, v_, bits);
-	printf("===============\n");
-	udump(pgcd, bits);
-	printf("%s", ((su_ == 1) ? "" : "-")); udump(u_, bits);
-	printf("%s", ((sv_ == 1) ? "" : "-")); udump(v_, bits);
-	printf("===============\n");
+	uegcd(a, mod, pgcd, &su_, u_, &sv_, v_, bits);
+	u(tmpdiv, bits); udivmod(u_, mod, tmpdiv, result, bits);
+	printf("=======MOD========\n");
+	udump(a, bits);
+	udump(mod, bits);
+	udump(result, bits);
+	printf("=======***========\n");
+
 }

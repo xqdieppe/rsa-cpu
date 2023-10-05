@@ -25,7 +25,6 @@ def sub(sx, x, sy, y):
 */
 
 void uegcdsub(int8_t sunit0, uint32_t *unit0, int8_t sunit1, uint32_t *unit1, int8_t *sresult, uint32_t *result, size_t bits) {
-	printf("%d %d\n", sunit0, sunit1);
 	if (sunit0 == -1 && sunit1 == -1) {
 		if (usupeq(unit0, unit1, bits)) {
 			*sresult = -1;

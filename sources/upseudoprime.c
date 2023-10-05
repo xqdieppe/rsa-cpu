@@ -684,7 +684,6 @@ uint8_t upseudoprime_test(uint32_t *prime, size_t bits) {
 	u(psubone, bits); usub(prime, one, psubone, bits);
 	u(result, bits);
 	umodexp(a, psubone, prime, result, bits);
-	udump(result, bits);
 	if (ueq(result, one, bits)) { return (1); }
 	return (0);
 }

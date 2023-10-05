@@ -74,5 +74,5 @@ def egcd(a, b):
         sy, y, sly, lasty = egcd_main(sy, y, sly, lasty, quotient)
     return lastremainder, slx * lastx * (-1 if a < 0 else 1), sly * lasty * (-1 if b < 0 else 1)
 
-print (egcd(12, 7))
+print (egcd(13, 7))
 #sub_tester(20000)
