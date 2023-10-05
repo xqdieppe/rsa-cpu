@@ -17,10 +17,7 @@ def sub(sx, x, sy, y):
         return 1, abs(abs(x) + abs(y))
     
     if (sx == -1 and sy == 1):
-        if abs(x) >= abs(y):
             return -1, abs(abs(x) + abs(y))
-        else:
-            return -1, abs(abs(y) + abs(x))
 
 def random_sign():
     if random.random() < 0.5:
