@@ -21,6 +21,7 @@ SRC = sources/uassign.c \
       sources/udivmod.c \
       sources/umodexp.c \
       sources/upseudoprime.c \
+      sources/upseudoprimefast.c \
       sources/uphi.c \
       sources/uegcd.c \
       sources/umodinv.c \

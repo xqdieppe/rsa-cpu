@@ -3,7 +3,7 @@
 int main(int argc, char **argv) {
 	srand(time(0));
 
-	#define USIZE 512
+	#define USIZE 256 
 
 	/*
 	u(unit0, USIZE); u(unit1, USIZE); u(uresult, USIZE); u(umod, USIZE);
@@ -42,6 +42,7 @@ int main(int argc, char **argv) {
 	upseudoprime(prime, USIZE / 2, USIZE);
 	udump(prime, USIZE);
 	*/
+	
 	u(e, USIZE); u(d, USIZE); u(n, USIZE);
 	ursakeygen(e, d, n, USIZE, USIZE);
 	udump(e, USIZE); udump(d, USIZE); udump(n, USIZE);

@@ -8,7 +8,7 @@ uint32_t upseudoprime_pretest(uint32_t *prime, uint32_t number, size_t bits) {
 	return (ueq(tmpmod, zero, bits));
 }
 
-uint8_t upseudoprime_test(uint32_t *prime, size_t bits) {
+uint32_t upseudoprime_test(uint32_t *prime, size_t bits) {
 	if (upseudoprime_pretest(prime, 2, bits)) return (0);
 	if (upseudoprime_pretest(prime, 3, bits)) return (0);
 	if (upseudoprime_pretest(prime, 5, bits)) return (0);
@@ -689,7 +689,7 @@ uint8_t upseudoprime_test(uint32_t *prime, size_t bits) {
 }
 
 uint8_t upseudoprime_test_32(uint32_t *prime, size_t bits) {
-	for (size_t i = 0; i < 32; i++) {
+	for (size_t i = 0; i < 4; i++) {
 		if (!upseudoprime_test(prime, bits))
 			return (0);
 	}
