@@ -25,6 +25,7 @@ def sub(sx, x, sy, y):
 */
 
 void uegcdsub(int8_t sunit0, uint32_t *unit0, int8_t sunit1, uint32_t *unit1, int8_t *sresult, uint32_t *result, size_t bits) {
+	printf("%d %d\n", sunit0, sunit1);
 	if (sunit0 == -1 && sunit1 == -1) {
 		if (usupeq(unit0, unit1, bits)) {
 			*sresult = -1;
@@ -34,21 +35,21 @@ void uegcdsub(int8_t sunit0, uint32_t *unit0, int8_t sunit1, uint32_t *unit1, in
 			usub(unit1, unit0, result, bits);
 		}
 	}
-	if (sunit0 == 1 && sunit1 == 1) {
+	else if (sunit0 == 1 && sunit1 == 1) {
 		if (usupeq(unit0, unit1, bits)) {
-			*result = 1;
+			*sresult = 1;
 			usub(unit0, unit1, result, bits);
 		} else {
-			*result = -1;
+			*sresult = -1;
 			usub(unit1, unit0, result, bits);
 		}	
 	}
-	if (sunit0 == 1 && sunit1 == -1) {
+	else if (sunit0 == 1 && sunit1 == -1) {
 		*sresult = 1;
 		uadd(unit0, unit1, result, bits);
 	}
-	if (sunit0 == -1 && sunit1 == 1) {
-		*result = -1;
+	else if (sunit0 == -1 && sunit1 == 1) {
+		*sresult = -1;
 		uadd(unit0, unit1, result, bits);
 	}
 }
@@ -69,9 +70,52 @@ void uegcdmain(int8_t *sx, uint32_t *x, int8_t *slx, uint32_t *lastx, uint32_t *
 	u(tmpx, bits);
 	u(qx, bits); umul(x, quotient, qx, bits);
 	uegcdsub(slx_, lastx, sx_, qx, &tmpsx, tmpx, bits);
+	printf("%d\n", tmpsx);
 	*slx = sx_; uassign(lastx, x, bits);
-	*sx = tmpsx; uassign(x, tmpx);
+	*sx = tmpsx; uassign(x, tmpx, bits);
 }
 
-void uegcd(uint32_t *a, uint32_t *b, uint32_t *pgcd, uint32_t *u_, uint32_t *v_, size_t bits) {
+/*
+def egcd(a, b):
+    lastremainder, remainder = abs(a), abs(b)
+    x, lastx, y, lasty = 0, 1, 1, 0
+    sx, slx, sy, sly = 1, 1, 1, 1
+
+    while remainder:
+        lastremainder, (quotient, remainder) = remainder, divmod(lastremainder, remainder)
+        print (quotient)
+        sx, x, slx, lastx = egcd_main(sx, x, slx, lastx, quotient)
+        sy, y, sly, lasty = egcd_main(sy, y, sly, lasty, quotient)
+    return lastremainder, slx * lastx * (-1 if a < 0 else 1), sly * lasty * (-1 if b < 0 else 1)
+
+*/
+
+void uegcd(uint32_t *a, uint32_t *b, uint32_t *pgcd, int8_t *su_, uint32_t *u_, int8_t *sv_, uint32_t *v_, size_t bits) {
+	u(zero, bits); u(one, bits); one[0] = 1;
+	udump(a, bits);
+	u(lastreminder, bits); uassign(lastreminder, a, bits);
+	u(reminder, bits); uassign(reminder, b, bits);
+	
+	int8_t sx = 1; int8_t slx = 1;
+	u(x, bits); uassign(x, zero, bits);
+	u(lastx, bits); uassign(lastx, one, bits);
+
+	int8_t sy = 1; int8_t sly = 1;
+	u(y, bits); uassign(y, one, bits);
+	u(lasty, bits); uassign(lasty, zero, bits);
+
+	while (!ueq(reminder, zero, bits)) {
+		u(savereminder, bits); uassign(savereminder, reminder, bits);
+		u(quotient, bits); u(tmpreminder, bits);
+		udivmod(lastreminder, reminder, quotient, tmpreminder, bits);
+		uassign(reminder, tmpreminder, bits);
+
+		uassign(lastreminder, savereminder, bits);
+
+		uegcdmain(&sx, x, &slx, lastx, quotient, bits);
+		uegcdmain(&sy, y, &sly, lasty, quotient, bits);
+	}
+	uassign(pgcd, lastreminder, bits);
+	*su_ = slx; uassign(u_, lastx, bits);
+	*sv_ = sly; uassign(v_, lasty, bits);
 }

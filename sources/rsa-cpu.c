@@ -8,7 +8,8 @@ int main(int argc, char **argv) {
 	/*
 	u(unit0, USIZE); u(unit1, USIZE); u(uresult, USIZE); u(umod, USIZE);
 	//memset(unit0, 0xff, 256 / 8); memset(unit1, 0xff, 256 / 8);
-	urand(unit0, USIZE / 2); urand(unit1, USIZE / 4);
+	//urand(unit0, USIZE / 2); urand(unit1, USIZE / 4);
+	unit0[0]=12; unit1[0]=7;
 	udivmod(unit0, unit1, uresult, umod, USIZE);
 	udump(unit0, USIZE); udump(unit1, USIZE); udump(uresult, USIZE); udump(umod, USIZE);
 	*/
@@ -36,13 +37,12 @@ int main(int argc, char **argv) {
 	udump(unit, USIZE); udump(exp, USIZE); udump(mod, USIZE); udump(result, USIZE);
 	*/
 
+	/*
 	u(prime, USIZE);
 	upseudoprime(prime, USIZE / 2, USIZE);
 	udump(prime, USIZE);
-
-	/*
+	*/
 	u(e, USIZE); u(d, USIZE); u(n, USIZE);
 	ursakeygen(e, d, n, USIZE, USIZE);
 	udump(e, USIZE); udump(d, USIZE); udump(n, USIZE);
-	*/
 }
