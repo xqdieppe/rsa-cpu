@@ -1,0 +1,11 @@
+function divlist(num, list) {
+	for (var i = 0; i < list; i++) {
+		if (!(num % list[i]))
+			return (0);
+	}
+	return (1);
+}
+
+function eratosthene(n) {
+	var list = [];
+}
