@@ -44,6 +44,6 @@ int main(int argc, char **argv) {
 	*/
 	
 	u(e, USIZE); u(d, USIZE); u(n, USIZE);
-	ursakeygen(e, d, n, USIZE, USIZE);
+	ursakeygen(e, d, n, USIZE / 2, USIZE);
 	udump(e, USIZE); udump(d, USIZE); udump(n, USIZE);
 }
