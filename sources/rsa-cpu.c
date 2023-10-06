@@ -65,6 +65,7 @@ int main(int argc, char **argv) {
 	udump(loaded_d, bits_prv);
 	udump(loaded_n_prv, bits_prv);
 
+	/*
 	printf("==============================\n");
 	u(clear, bits); urand(clear, bits / 4);
 	udump(clear, bits);
@@ -74,8 +75,14 @@ int main(int argc, char **argv) {
 	umodexp(encrypted, loaded_d, loaded_n_prv, decrypted, bits_prv);
 	udump(decrypted, bits);
 	printf("==============================\n");
+	*/
 
-	keygen(argv[1], atoi(argv[2]));
+	//keygen(argv[1], atoi(argv[2]));
+	u(clear, 131072); u(encrypted, 131072); u(decrypted, 131072);
+	urand(clear, 128);
+	ursarun(clear, encrypted, "mykeys/pubkey.rsa");
+	ursarun(encrypted, decrypted, "mykeys/privkey.rsa");
+	udump(clear, 512); udump(encrypted, 512); udump(decrypted, 512);
 
 	/*
 	char *line = NULL;

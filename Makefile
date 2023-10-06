@@ -29,6 +29,7 @@ SRC = sources/uassign.c \
       sources/ursaimportkey.c \
       sources/ursaexportkey.c \
       sources/keygen.c \
+      sources/ursarun.c \
 
 NAME_SRC = sources/rsa-cpu.c
 
