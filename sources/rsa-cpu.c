@@ -74,6 +74,9 @@ int main(int argc, char **argv) {
 	umodexp(encrypted, loaded_d, loaded_n_prv, decrypted, bits_prv);
 	udump(decrypted, bits);
 	printf("==============================\n");
+
+	keygen(argv[1], atoi(argv[2]));
+
 	/*
 	char *line = NULL;
 	char *cmd = NULL;
