@@ -42,8 +42,46 @@ int main(int argc, char **argv) {
 	upseudoprime(prime, USIZE / 2, USIZE);
 	udump(prime, USIZE);
 	*/
-	
+
 	u(e, USIZE); u(d, USIZE); u(n, USIZE);
 	ursakeygen(e, d, n, USIZE / 2, USIZE);
 	udump(e, USIZE); udump(d, USIZE); udump(n, USIZE);
+	ursaexportpubkey(e, n, USIZE / 2, "keys/pubkey.rsa");
+	ursaexportprivkey(d, n, USIZE / 2, "keys/privkey.rsa");
+	
+	rsa_key_header_t header;
+	ursaimportkeyheader(&header, "keys/pubkey.rsa");
+	size_t bits = header.modulus_size * 16;
+	u(loaded_e, bits); u(loaded_n, bits);
+	ursaimportkey(loaded_e, loaded_n, "keys/pubkey.rsa");
+	udump(loaded_e, bits);
+	udump(loaded_n, bits);
+
+	rsa_key_header_t header_prv;
+	ursaimportkeyheader(&header_prv, "keys/privkey.rsa");
+	size_t bits_prv = header.modulus_size * 16;
+	u(loaded_d, bits_prv); u(loaded_n_prv, bits_prv);
+	ursaimportkey(loaded_d, loaded_n_prv, "keys/privkey.rsa");
+	udump(loaded_d, bits_prv);
+	udump(loaded_n_prv, bits_prv);
+
+	printf("==============================\n");
+	u(clear, bits); urand(clear, bits / 4);
+	udump(clear, bits);
+	u(encrypted, bits); u(decrypted, bits);
+	umodexp(clear, loaded_e, loaded_n, encrypted, bits);
+	udump(encrypted, bits);
+	umodexp(encrypted, loaded_d, loaded_n_prv, decrypted, bits_prv);
+	udump(decrypted, bits);
+	printf("==============================\n");
+	/*
+	char *line = NULL;
+	char *cmd = NULL;
+	do {
+		line = readline("rsa-cpu$ ");
+		if (!line) return (0);
+		add_history(line);
+		cmd = strtok(line, " ");
+	} while (line && !strcmp(line, "exit"));
+	*/
 }

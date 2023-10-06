@@ -69,7 +69,6 @@ void uegcdmain(int8_t *sx, uint32_t *x, int8_t *slx, uint32_t *lastx, uint32_t *
 	u(tmpx, bits);
 	u(qx, bits); umul(x, quotient, qx, bits);
 	uegcdsub(slx_, lastx, sx_, qx, &tmpsx, tmpx, bits);
-	printf("%d\n", tmpsx);
 	*slx = sx_; uassign(lastx, x, bits);
 	*sx = tmpsx; uassign(x, tmpx, bits);
 }

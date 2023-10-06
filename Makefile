@@ -1,7 +1,7 @@
 NAME = rsa-cpu
 
 CC = gcc
-CFLAGS = -I includes/ -O3
+CFLAGS = -I includes/ -g3 -lreadline
 SRC = sources/uassign.c \
       sources/udump.c \
       sources/udumpbin.c \
@@ -26,6 +26,8 @@ SRC = sources/uassign.c \
       sources/uegcd.c \
       sources/umodinv.c \
       sources/ursakeygen.c \
+      sources/ursaimportkey.c \
+      sources/ursaexportkey.c \
 
 NAME_SRC = sources/rsa-cpu.c
 

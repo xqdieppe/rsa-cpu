@@ -21,8 +21,8 @@ void ursakeygen(uint32_t *e, uint32_t *d, uint32_t *n, size_t keysize, size_t bi
 		
 		printf("=====CLEAR======\n");
 		udump(clear, bits);
+		udump(encrypted, bits);
 		udump(decrypted, bits);
 		printf("==============\n");
-
 	} while (!ueq(clear, decrypted, bits));
 }
