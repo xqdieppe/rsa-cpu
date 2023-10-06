@@ -13,8 +13,9 @@ char *decrypt(char *privkey, char *encrypted_file) {
 	ursarun(data, decrypted, privkey);
 	udump(decrypted, bits / 2);
 	size_t s = usize(decrypted, bits) / 8;
-	
+
+	printf("%d\n", s);	
 	char *string = (void *) malloc((s + 1) * sizeof(char));
-	memset(string, 0, s + 1); memcpy(string, decrypted, s);
+	memset(string, 0, s + 1); memcpy((void *) string, (void *) decrypted, s);
 	printf("%s\n", string);
 }
