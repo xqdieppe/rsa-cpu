@@ -78,12 +78,15 @@ int main(int argc, char **argv) {
 	*/
 
 	//keygen(argv[1], atoi(argv[2]));
+	//encrypt(argv[1], argv[2], argv[3]);
+	decrypt(argv[1], argv[2]);
+	/*
 	u(clear, 131072); u(encrypted, 131072); u(decrypted, 131072);
 	urand(clear, 128);
 	ursarun(clear, encrypted, "mykeys/pubkey.rsa");
 	ursarun(encrypted, decrypted, "mykeys/privkey.rsa");
 	udump(clear, 512); udump(encrypted, 512); udump(decrypted, 512);
-
+	*/
 	/*
 	char *line = NULL;
 	char *cmd = NULL;
