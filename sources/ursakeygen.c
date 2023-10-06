@@ -8,7 +8,7 @@ uint64_t ursakeygen_rand_prime_size(size_t size) {
 void ursakeygen(uint32_t *e, uint32_t *d, uint32_t *n, size_t keysize, size_t bits) {
 	u(zero, bits);
 	size_t rand_prime_size = ursakeygen_rand_prime_size(keysize / 4);
-	u(p, bits); upseudoprime(p, keysize / 2 + rand_prime_size, bits);
+	u(p, bits * 2); upseudoprime(p, keysize / 2 + rand_prime_size, bits * 2);
 	u(q, bits); upseudoprime(q, keysize / 2 - rand_prime_size, bits);
 	umul(p, q, n, bits);
 	u(phi, bits); uphi(p, q, phi, bits);

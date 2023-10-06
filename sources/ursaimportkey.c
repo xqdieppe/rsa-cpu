@@ -3,7 +3,6 @@
 void ursaimportkeyheader(rsa_key_header_t *header, char *filename) {
 	int fd = open(filename, O_RDWR);
 	int r = read(fd, header, sizeof(rsa_key_header_t));
-	printf("%d, %d, %d\n", fd, r, header->exponent_size);
 	close(fd);
 }
 
