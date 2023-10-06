@@ -10,11 +10,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 
-#include <readline/readline.h>
-#include <readline/history.h>
-
 #include "units.h"
 #include "rsa-key.h"
-#include "header.h"
 
 #endif

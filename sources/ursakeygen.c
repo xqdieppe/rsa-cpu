@@ -25,4 +25,5 @@ void ursakeygen(uint32_t *e, uint32_t *d, uint32_t *n, size_t keysize, size_t bi
 		umodexp(clear, e, n, encrypted, bits);
 		umodexp(encrypted, d, n, decrypted, bits);
 	} while (!ueq(clear, decrypted, bits));
+	udump(n, bits);
 }
