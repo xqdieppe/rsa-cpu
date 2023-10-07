@@ -18,10 +18,15 @@ char *get_parameter(int argc, char **argv, char *parameter) {
 int keygen_args(int argc, char **argv) {
 	char *directory = get_parameter(argc, argv, "--directory");
 	char *size = get_parameter(argc, argv, "--size");
-	int s = atoi(size);
 
+	if (size == NULL) { help(argv); return (1); }
+	int s = atoi(size);
+	if (s < 128 | (s % 32)) { help(argv); return (1); }
+
+	if (directory == NULL)
+		{ help(argv); return (1); }
 	keygen(directory, s);
-	return (1);
+	return (0);
 }
 
 int encrypt_args(int argc, char **argv) {
@@ -29,16 +34,20 @@ int encrypt_args(int argc, char **argv) {
 	char *message = get_parameter(argc, argv, "--message");
 	char *file = get_parameter(argc, argv, "--file");
 
+	if (pubkey == NULL || file == NULL || message == NULL)
+		{ help(argv); return (1); }
 	sencrypt(message, pubkey, file);
-	return (1);
+	return (0);
 }
 
 int decrypt_args(int argc, char **argv) {
 	char *privkey = get_parameter(argc, argv, "--privkey");
 	char *file = get_parameter(argc, argv, "--file");
 
+	if (privkey == NULL || file == NULL)
+		{ help(argv); return (1); }
 	sdecrypt(privkey, file);
-	return (1);
+	return (0);
 }
 
 int main(int argc, char **argv) {

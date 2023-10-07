@@ -7,6 +7,13 @@ void sdecrypt(char *privkey, char *encrypted_file) {
 	
 	u(data, bits); u(decrypted, bits);
 	int fd = open(encrypted_file, O_RDWR);
+	if (fd == -1) { printf("%s: Unable To Read File.\n", encrypted_file); exit(1); }
+
+	struct stat stat_;
+	fstat(fd, &stat_);
+	if (stat_.st_size != (bits / 16))
+		{ printf("%s: Bad Encrypted File.\n", encrypted_file); close(fd); exit(1); }
+
 	read(fd, data, bits / 16);
 	close(fd);
 
