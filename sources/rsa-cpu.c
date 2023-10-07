@@ -19,7 +19,7 @@
 #include "rsa-cpu.h"
 
 void help(char **argv) {
-	printf("usage: %s --mode <mode> <...paramters>\n", argv[0]);
+	printf("usage: %s --mode <mode> <...params>\n", argv[0]);
 	printf("%s --mode keygen --size <keysize> --directory <dirname>\n", argv[0]);
 	printf("%s --mode encrypt --pubkey <pubkey> --message <message> --file <file>\n", argv[0]);
 	printf("%s --mode decrypt --privkey <privkey> --file <file>\n", argv[0]);
