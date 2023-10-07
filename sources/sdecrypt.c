@@ -1,6 +1,6 @@
 #include "rsa-cpu.h"
 
-void decrypt(char *privkey, char *encrypted_file) {
+void sdecrypt(char *privkey, char *encrypted_file) {
 	rsa_key_header_t header;
 	ursaimportkeyheader(&header, privkey);
 	size_t bits = header.modulus_size * 16;

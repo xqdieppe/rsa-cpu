@@ -29,7 +29,7 @@ int encrypt_args(int argc, char **argv) {
 	char *message = get_parameter(argc, argv, "--message");
 	char *file = get_parameter(argc, argv, "--file");
 
-	encrypt(message, pubkey, file);
+	sencrypt(message, pubkey, file);
 	return (1);
 }
 
@@ -37,7 +37,7 @@ int decrypt_args(int argc, char **argv) {
 	char *privkey = get_parameter(argc, argv, "--privkey");
 	char *file = get_parameter(argc, argv, "--file");
 
-	decrypt(privkey, file);
+	sdecrypt(privkey, file);
 	return (1);
 }
 

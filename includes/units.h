@@ -10,8 +10,8 @@
 	memset((void *)name, 0, bits / 8);
 */
 
-void decrypt(char *privkey, char *encrypted_file);
-void encrypt(char *string, char *pubkey, char *encrypted_file);
+void sdecrypt(char *privkey, char *encrypted_file);
+void sencrypt(char *string, char *pubkey, char *encrypted_file);
 void keygen(char *dirname, size_t keysize);
 void help(char **argv);
 void uadd(uint32_t *unit0, uint32_t *unit1, uint32_t *result, size_t bits);

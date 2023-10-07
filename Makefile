@@ -30,8 +30,8 @@ SRC = sources/uassign.c \
       sources/ursaexportkey.c \
       sources/ursarun.c \
       sources/keygen.c \
-      sources/encrypt.c \
-      sources/decrypt.c \
+      sources/sencrypt.c \
+      sources/sdecrypt.c \
 
 NAME_SRC = sources/rsa-cpu.c
 
