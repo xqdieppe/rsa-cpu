@@ -29,7 +29,7 @@ void ursaimportkeyheader(rsa_key_header_t *header, char *filename) {
 void ursaimportkey(uint32_t *exponent, uint32_t *modulus, char *filename) {
 	rsa_key_header_t header;
 	int fd = open(filename, O_RDWR);
-	if (fd ==  -1) { printf("%s: Unable To Read File.\n"); exit(1); }
+	if (fd ==  -1) { printf("%s: Unable To Read File.\n", filename); exit(1); }
 	int rhdr = read(fd, &header, sizeof(rsa_key_header_t));
 	if (rhdr != sizeof(rsa_key_header_t)) { printf("%s : Bad RSA Key.\n", filename); close(fd); exit(1); }
 	
