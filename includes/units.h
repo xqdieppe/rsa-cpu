@@ -46,7 +46,7 @@ void ulshift(uint32_t *unit, uint32_t *result, uint64_t lshift, size_t bits);
 void umodexp(uint32_t *unit, uint32_t *exp, uint32_t *mod, uint32_t *result, size_t bits);
 void umodexp(uint32_t *unit, uint32_t *exp, uint32_t *mod, uint32_t *result, size_t bits);
 void umodinv(uint32_t *a, uint32_t *mod, uint32_t *result, size_t bits);
-void umul_step(uint32_t *unit0, uint16_t unit1, uint32_t *result, size_t bits);
+void umul_step(uint32_t *unit0, uint32_t unit1, uint32_t *result, size_t bits);
 void umul(uint32_t *unit0, uint32_t *unit1, uint32_t *result, size_t bits);
 void uphi(uint32_t *p, uint32_t *q, uint32_t *result, size_t bits);
 uint32_t upseudoprime_pretest(uint32_t *prime, uint32_t number, size_t bits);
