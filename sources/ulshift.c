@@ -18,7 +18,7 @@
 
 #include "rsa-cpu.h"
 
-void ulshift(unsigned int *unit, unsigned int *result, uint64_t lshift, size_t bits) {
+void ulshift(uint32_t *unit, uint32_t *result, uint64_t lshift, size_t bits) {
 	size_t skip = lshift / 16;
 	size_t shift = lshift % 16;
 	size_t s = bits / 16 - skip;

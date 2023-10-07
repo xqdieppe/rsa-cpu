@@ -46,7 +46,7 @@ void uegcd(uint32_t *a, uint32_t *b, uint32_t *pgcd, int8_t *su_, uint32_t *u_, 
 uint32_t ueq(uint32_t *unit0, uint32_t *unit1, int64_t bits);
 uint32_t uinf(uint32_t *unit0, uint32_t *unit1, int64_t bits);
 uint32_t uinfeq(uint32_t *unit0, uint32_t *unit1, int64_t bits);
-void ulshift(unsigned int *unit, unsigned int *result, uint64_t lshift, size_t bits);
+void ulshift(uint32_t *unit, uint32_t *result, uint64_t lshift, size_t bits);
 void umodexp(uint32_t *unit, uint32_t *exp, uint32_t *mod, uint32_t *result, size_t bits);
 void umodexp(uint32_t *unit, uint32_t *exp, uint32_t *mod, uint32_t *result, size_t bits);
 void umodinv(uint32_t *a, uint32_t *mod, uint32_t *result, size_t bits);
@@ -59,12 +59,12 @@ uint8_t upseudoprime_test_32(uint32_t *prime, size_t bits);
 void upseudoprime(uint32_t *result, size_t size, size_t bits);
 void upseudoprimefastcandidate(uint32_t *result, size_t size, size_t bits);
 void upseudoprimefast(uint32_t *result, size_t size, size_t bits);
-void urand(unsigned int *unit, size_t size);
+void urand(uint32_t *unit, size_t size);
 
 uint64_t ursakeygen_rand_prime_size(size_t size);
 void ursakeygen(uint32_t *e, uint32_t *d, uint32_t *n, size_t keysize, size_t bits);
 void ursarun(uint32_t *unit, uint32_t *result, char *filename);
-void urshift(unsigned int *unit, unsigned int *result, size_t rshift, size_t bits);
+void urshift(uint32_t *unit, uint32_t *result, size_t rshift, size_t bits);
 size_t usize(uint8_t *unit, int64_t bits);
 void usub(uint32_t *unit0, uint32_t *unit1, uint32_t *result, size_t bits);
 uint32_t usup(uint32_t *unit0, uint32_t *unit1, int64_t bits);
