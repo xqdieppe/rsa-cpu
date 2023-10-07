@@ -58,8 +58,8 @@ void uegcdmain(int8_t *sx, uint32_t *x, int8_t *slx, uint32_t *lastx, uint32_t *
 
 void uegcd(uint32_t *a, uint32_t *b, uint32_t *pgcd, int8_t *su_, uint32_t *u_, int8_t *sv_, uint32_t *v_, size_t bits) {
 	u(zero, bits); u(one, bits); one[0] = 1;
-	u(lastreminder, bits); uassign(lastreminder, a, bits);
-	u(reminder, bits); uassign(reminder, b, bits);
+	u(lastremainder, bits); uassign(lastremainder, a, bits);
+	u(remainder, bits); uassign(remainder, b, bits);
 	
 	int8_t sx = 1; int8_t slx = 1;
 	u(x, bits); uassign(x, zero, bits);
@@ -69,18 +69,18 @@ void uegcd(uint32_t *a, uint32_t *b, uint32_t *pgcd, int8_t *su_, uint32_t *u_, 
 	u(y, bits); uassign(y, one, bits);
 	u(lasty, bits); uassign(lasty, zero, bits);
 
-	while (!ueq(reminder, zero, bits)) {
-		u(savereminder, bits); uassign(savereminder, reminder, bits);
-		u(quotient, bits); u(tmpreminder, bits);
-		udivmod(lastreminder, reminder, quotient, tmpreminder, bits);
-		uassign(reminder, tmpreminder, bits);
+	while (!ueq(remainder, zero, bits)) {
+		u(saveremainder, bits); uassign(saveremainder, remainder, bits);
+		u(quotient, bits); u(tmpremainder, bits);
+		udivmod(lastremainder, remainder, quotient, tmpremainder, bits);
+		uassign(remainder, tmpremainder, bits);
 
-		uassign(lastreminder, savereminder, bits);
+		uassign(lastremainder, saveremainder, bits);
 
 		uegcdmain(&sx, x, &slx, lastx, quotient, bits);
 		uegcdmain(&sy, y, &sly, lasty, quotient, bits);
 	}
-	uassign(pgcd, lastreminder, bits);
+	uassign(pgcd, lastremainder, bits);
 	*su_ = slx; uassign(u_, lastx, bits);
 	*sv_ = sly; uassign(v_, lasty, bits);
 }
