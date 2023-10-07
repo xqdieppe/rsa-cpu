@@ -2,8 +2,7 @@ NAME = rsa-cpu
 
 CC = gcc
 CFLAGS = -I includes/ -O3
-SRC = sources/uassign.c \
-      sources/udump.c \
+SRC = sources/udump.c \
       sources/udumpbin.c \
       sources/usize.c \
       sources/urand.c \

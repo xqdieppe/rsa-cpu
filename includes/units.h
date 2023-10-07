@@ -22,18 +22,16 @@
 #define u(name,bits) \
 	uint32_t name[bits / 32]; \
 	memset((void *)name, 0, bits / 8);
-/*
-#define u(name,bits) \
-	uint32_t *name = malloc(bits / 8); \
-	memset((void *)name, 0, bits / 8);
-*/
+
+#define uassign(unit0, unit1, bits) \
+	memset((void *) unit0, 0, bits / 8); \
+	memcpy((void *) unit0, (void *) unit1, bits / 8);
 
 void sdecrypt(char *privkey, char *encrypted_file);
 void sencrypt(char *string, char *pubkey, char *encrypted_file);
 void keygen(char *dirname, size_t keysize);
 void help(char **argv);
 void uadd(uint32_t *unit0, uint32_t *unit1, uint32_t *result, size_t bits);
-void uassign(uint32_t *unit0, uint32_t *unit1, size_t bits);
 void udivmod(uint32_t *unit0, uint32_t *unit1, uint32_t *result, uint32_t *mod, size_t bits);
 void dump_byte(uint8_t byte);
 void udumpbin(uint32_t *unit, size_t bits);
