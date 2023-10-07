@@ -706,7 +706,7 @@ uint32_t upseudoprime_test(uint32_t *prime, size_t bits) {
 	return (0);
 }
 
-uint8_t upseudoprime_test_32(uint32_t *prime, size_t bits) {
+uint8_t upseudoprime_test_4(uint32_t *prime, size_t bits) {
 	for (size_t i = 0; i < 4; i++) {
 		if (!upseudoprime_test(prime, bits))
 			return (0);
@@ -717,6 +717,6 @@ uint8_t upseudoprime_test_32(uint32_t *prime, size_t bits) {
 void upseudoprime(uint32_t *result, size_t size, size_t bits) {
 	do {
 		urand(result, size); 
-		if (upseudoprime_test_32(result, bits)) return;
+		if (upseudoprime_test_4(result, bits)) return;
 	} while (1);
 }
