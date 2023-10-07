@@ -44,7 +44,6 @@ uint32_t uinf(uint32_t *unit0, uint32_t *unit1, int64_t bits);
 uint32_t uinfeq(uint32_t *unit0, uint32_t *unit1, int64_t bits);
 void ulshift(uint32_t *unit, uint32_t *result, uint64_t lshift, size_t bits);
 void umodexp(uint32_t *unit, uint32_t *exp, uint32_t *mod, uint32_t *result, size_t bits);
-void umodexp(uint32_t *unit, uint32_t *exp, uint32_t *mod, uint32_t *result, size_t bits);
 void umodinv(uint32_t *a, uint32_t *mod, uint32_t *result, size_t bits);
 void umul_step(uint32_t *unit0, uint32_t unit1, uint32_t *result, size_t bits);
 void umul(uint32_t *unit0, uint32_t *unit1, uint32_t *result, size_t bits);
