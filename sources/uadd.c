@@ -1,6 +1,6 @@
 #include "rsa-cpu.h"
 
-void uadd(unsigned int *unit0, unsigned int *unit1, unsigned int *result, size_t bits) {
+void uadd(uint32_t *unit0, uint32_t *unit1, uint32_t *result, size_t bits) {
 	uint64_t tmp = 0;
 	uint64_t r = 0;
 	size_t s = bits / 32;

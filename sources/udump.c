@@ -1,9 +1,9 @@
 #include "rsa-cpu.h"
 
-void udump(unsigned int *unit, long long bits) {
-	long long size = bits / 32;
+void udump(uint32_t *unit, size_t bits) {
+	int64_t size = bits / 32;
 
-	for (long long i = size - 1; i > -1; i--) {
+	for (int64_t i = size - 1; i > -1; i--) {
 		printf("%08X", unit[i]);
 	}
 	printf("\n");

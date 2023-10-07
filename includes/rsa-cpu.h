@@ -3,12 +3,14 @@
 
 #include <string.h>
 #include <stdio.h>
+#include <unistd.h>
 #include <stddef.h>
 #include <stdint.h>
 #include <stdlib.h>
 #include <fcntl.h>
 #include <sys/stat.h>
 #include <sys/types.h>
+#include <time.h>
 
 #include "units.h"
 #include "rsa-key.h"

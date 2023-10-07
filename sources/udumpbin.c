@@ -11,10 +11,10 @@ void dump_byte(uint8_t byte) {
 	printf("%d", (byte & 1));
 }
 
-void udumpbin(unsigned int *unit, long long bits) {
-	long long size = bits / 8;
+void udumpbin(uint32_t *unit, size_t bits) {
+	int64_t size = bits / 8;
 
-	for (long long i = size - 1; i > -1; i--) {
+	for (int64_t i = size - 1; i > -1; i--) {
 		dump_byte(((uint8_t *) unit)[i]);
 	}
 	printf("\n");
