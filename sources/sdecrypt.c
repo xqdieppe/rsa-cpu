@@ -40,5 +40,7 @@ void sdecrypt(char *privkey, char *encrypted_file) {
 
 	char *string = (void *) malloc((s + 1) * sizeof(char));
 	memset(string, 0, s + 1); memcpy((void *) string, (void *) decrypted, s);
-	printf("%s\n", string);
+	u(zero, bits);
+	if (strlen(string))
+		printf("%s\n", string);
 }
