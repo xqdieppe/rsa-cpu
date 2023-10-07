@@ -39,7 +39,7 @@ int keygen_args(int argc, char **argv) {
 
 	if (size == NULL) { help(argv); return (1); }
 	int s = atoi(size);
-	if (s < 128 | (s % 32)) { help(argv); return (1); }
+	if ((s < 128) || (s % 32)) { help(argv); return (1); }
 
 	if (directory == NULL)
 		{ help(argv); return (1); }
