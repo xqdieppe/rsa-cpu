@@ -25,5 +25,7 @@ void ursarun(uint32_t *unit, uint32_t *result, char *filename) {
 	size_t bits = header.modulus_size * 16;
 	u(exp, bits); u(mod, bits);
 	ursaimportkey(exp, mod, filename);
+	if (usupeq(unit, mod, bits))
+		{ printf("Unit to large to encrypt.\n"); exit(1); }
 	umodexp(unit, exp, mod, result, bits);
 }
